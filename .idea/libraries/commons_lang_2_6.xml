@@ -1,0 +1,45 @@
+<component name="libraryTable">
+  <library name="commons-lang-2.6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/lib2/commons-lang-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/cxf-rt-frontend-simple-3.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/cxf-rt-frontend-jaxws-3.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/commons-collections-3.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/cesecore-ejb-interface.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/ejbca-common-web.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/cxf-core-3.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/bcpkix-jdk15on-165.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/jakarta.xml.bind-api-2.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/cxf-rt-wsdl-3.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/bcprov-jdk15on-165.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/cert-cvc-1.4.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/geronimo-osgi-locator-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/jaxb-runtime-2.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/ejbca-ws-client.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/cxf-rt-bindings-soap-3.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/commons-configuration-1.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/ldap.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/javaee-api-7.0-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/cesecore-common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/istack-commons-runtime-3.0.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/jacknji11-1.0-20180109-6d6503f.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/woodstox-core-5.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/stax2-api-3.1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/cxf-rt-databinding-jaxb-3.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/ejbca-ws.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/bctls-jdk15on-165.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/cxf-rt-transports-http-3.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/ejbca-common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/commons-io-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/wsdl4j-1.6.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lib2/xmlschema-core-2.2.5.jar!/" />
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src" />
+    </SOURCES>
+  </library>
+</component>

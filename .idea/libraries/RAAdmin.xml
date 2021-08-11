@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="RAAdmin">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/RAAdmin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
