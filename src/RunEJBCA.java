@@ -15,8 +15,23 @@ import java.util.List;
 
 public class RunEJBCA {
     public static void main(String[] args) throws Exception {
+        /**
+         * Connect to functions: WebServiceConnection, WebClient, User
+         **/
         WebServiceConnection connection = new WebServiceConnection();
         WebClient client = new WebClient();
+        User user = new User();
+
+        // Declare UserDataVOWS of EJBCA
+        UserDataVOWS userDataVOWS = new UserDataVOWS();
+
+        /**
+         * Connect EJBCA RA
+         * <p>
+         * Connect to server virtual machine with URL (Change in host file)
+         * Select trustsstore.jks & superadmin.p12
+         * Follow: https://download.primekey.com/docs/EJBCA-Enterprise/6_15_2/Web_Service_Interface.html
+         **/
         String urlstr = "https://caadmin.cmc.vn:8443/ejbca/ejbcaws/ejbcaws?wsdl";
         String truststore = "C:\\Users\\ngmdu\\Desktop\\p12\\truststore.jks";
         String passTruststore = "123456";
@@ -25,7 +40,7 @@ public class RunEJBCA {
         EjbcaWS ejbcaraws = connection.connectService(urlstr, truststore, passTruststore, superadmin, passSuperadmin);
 
         /**
-         * Version
+         * GEt Version
          **/
         System.out.println("EJBCA Version: " + ejbcaraws.getEjbcaVersion());
 
@@ -39,12 +54,9 @@ public class RunEJBCA {
          **/
         connection.getAvailableCA(ejbcaraws);
 
-        User user = new User();
-
         /**
          * Add or Edit user
          **/
-        UserDataVOWS userDataVOWS = new UserDataVOWS();
         user.addOrEditUser(userDataVOWS, ejbcaraws,
                 "ngmduc4",
                 "1",
@@ -157,27 +169,27 @@ public class RunEJBCA {
         /**
          * Generate Request PKCS10
          **/
-                user.addOrEditUser(userDataVOWS, ejbcaraws,
-                "client6",
-                "1",
-                false,
-                "CN=client6, OU=CMC, O=CMC company, L=ha noi, ST=cau giay, C=VN",
-                "ServerCA",
-                UserDataVOWS.TOKEN_TYPE_USERGENERATED,
-                EndEntityConstants.STATUS_NEW,
-                null,
-                null,
-                "EndEntityProfile",
-                "EndEntityCertificateProfile",
-                null
-        );
-        PKCS10CertificationRequest pkcs10 = client.pkcs10CertificationRequest("SHA1WithRSA", "CN=client6, OU=CMC, O=CMC company, L=ha noi, ST=cau giay, C=VN", keys);
+//                user.addOrEditUser(userDataVOWS, ejbcaraws,
+//                "client6",
+//                "1",
+//                false,
+//                "CN=client6, OU=CMC, O=CMC company, L=ha noi, ST=cau giay, C=VN",
+//                "ServerCA",
+//                UserDataVOWS.TOKEN_TYPE_USERGENERATED,
+//                EndEntityConstants.STATUS_NEW,
+//                null,
+//                null,
+//                "EndEntityProfile",
+//                "EndEntityCertificateProfile",
+//                null
+//        );
+//        PKCS10CertificationRequest pkcs10 = client.pkcs10CertificationRequest("SHA1WithRSA", "CN=client6, OU=CMC, O=CMC company, L=ha noi, ST=cau giay, C=VN", keys);
 
         /**
          * Get certificate respond from pkcs 10 request
          **/
-        CertificateResponse certenv = connection.certificateRequestFromP10(ejbcaraws,pkcs10,"client6", "1", null, CertificateHelper.RESPONSETYPE_CERTIFICATE);
-        connection.showCertificateRespond(certenv);
+//        CertificateResponse certenv = connection.certificateRequestFromP10(ejbcaraws,pkcs10,"client6", "1", null, CertificateHelper.RESPONSETYPE_CERTIFICATE);
+//        connection.showCertificateRespond(certenv);
 
 
     }

@@ -28,6 +28,7 @@ public class WebServiceConnection {
 
     /**
      * Connect to Web Server
+     * Follow: https://download.primekey.com/docs/EJBCA-Enterprise/6_15_2/Web_Service_Interface.html
      **/
     public EjbcaWS connectService(String urlstr, String truststore, String passTruststore, String superadmin, String passSuperadmin) throws Exception {
         try {
@@ -55,9 +56,11 @@ public class WebServiceConnection {
      **/
     public void getAvailableCA(EjbcaWS ejbcaraws) throws Exception {
         System.out.println("\n\n");
+        // if no AvailableCA be getted
         if (ejbcaraws.getAvailableCAs().isEmpty()) {
             System.out.println("No Available CAs");
         } else {
+            //Show data
             System.out.println(" Available CAs ");
             for (NameAndId i : ejbcaraws.getAvailableCAs()
             ) {
@@ -73,9 +76,11 @@ public class WebServiceConnection {
      **/
     public void getEndEntity(EjbcaWS ejbcaraws) throws Exception {
         System.out.println("\n\n");
+        // if get no Authorized End Entity Profiles
         if (ejbcaraws.getAuthorizedEndEntityProfiles().isEmpty()) {
             System.out.println("No End Entity Profile");
         } else {
+            //Show data
             System.out.println("  End Entity Profile ");
             for (NameAndId i : ejbcaraws.getAuthorizedEndEntityProfiles()
             ) {
@@ -160,12 +165,14 @@ public class WebServiceConnection {
                                                    java.lang.String hardTokenSN, java.lang.String responseType)
             throws Exception {
 
-        //Read data from file
+        //Declare Function Units
         Units units = new Units();
+        //Read data from file
         byte[] request = Files.readAllBytes(path);
+        //Convest file to String
         String requestText = new String(request, StandardCharsets.UTF_8);
+        //Convest to PKCS10 Certification Request
         org.bouncycastle.pkcs.PKCS10CertificationRequest requestData = units.convertPemToPKCS10CertificationRequest(requestText);
-
         try {
             CertificateResponse certenv = certificateRequest(ejbcaraws, requestData, userData, requestType, hardTokenSN, responseType);
             return certenv;
@@ -212,6 +219,7 @@ public class WebServiceConnection {
             Enumeration<String> en = ks.aliases();
             String alias = en.nextElement();
             java.security.cert.Certificate certificateP12 = (java.security.cert.Certificate) ks.getCertificate(alias);
+            //Show certificate
             System.out.println("\n\n");
             System.out.println("Server Certificate from P12:");
             System.out.println("Encoded   : " + String.format("%8s", Integer.toBinaryString(ByteBuffer.wrap(certificateP12.getEncoded()).getInt())));
@@ -272,6 +280,7 @@ public class WebServiceConnection {
 
     void checkRevokation(EjbcaWS ejbcaraws, Certificate cert) {
         try {
+            //Generate x509 Certificate
             X509Certificate x509Cert = (X509Certificate) CertTools
                     .getCertfromByteArray(cert.getRawCertificateData());
             RevokeStatus check = checkRevokationStatus(ejbcaraws, x509Cert.getIssuerDN().toString(), CertTools
@@ -329,6 +338,7 @@ public class WebServiceConnection {
 
     void revokeCertificate(EjbcaWS ejbcaraws, Certificate cert, int reason) throws Exception {
         try {
+            //Generate x509 Certificate
             X509Certificate x509Cert = (X509Certificate) CertTools
                     .getCertfromByteArray(cert.getRawCertificateData());
 
